@@ -1,0 +1,70 @@
+{
+  "name": "nk-design-system",
+  "version": "1.0.0",
+  "description": "mk-design-system",
+  "scripts": {
+    "start": "webpack-dev-server --port 8080 --open --mode=development --display-error-details",
+    "clean-build": "shx rm -rf build",
+    "build": "yarn clean-build && rollup -c",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "main": "./build/index.js",
+  "module": "./build/index.es.js",
+  "node_engine": {
+    "node": ">=10.16.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "pretty-quick --staged",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "author": "Nikhil Kumaran S",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^15.1.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@storybook/addon-a11y": "^6.0.22",
+    "@storybook/addon-actions": "^6.0.22",
+    "@storybook/addon-controls": "^6.0.22",
+    "@storybook/addon-essentials": "^6.0.22",
+    "@storybook/addon-links": "^6.0.22",
+    "@storybook/addon-storysource": "^6.0.22",
+    "@storybook/react": "^6.0.22",
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8",
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
+    "autoprefixer": "^9.0.0",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.2",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "postcss-loader": "^4.0.3",
+    "prettier": "^2.1.2",
+    "pretty-quick": "^2.0.2",
+    "react-is": "^16.13.1",
+    "rollup": "^2.28.2",
+    "rollup-plugin-peer-deps-external": "^2.2.3",
+    "rollup-plugin-postcss": "^3.1.8",
+    "rollup-plugin-typescript2": "^0.27.3",
+    "serve": "^11.3.2",
+    "shx": "^0.3.2",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "tailwindcss": "^1.8.10"
+  }
+}
