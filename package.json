@@ -28,6 +28,10 @@
   },
   "author": "Nikhil Kumaran S",
   "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^15.1.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
@@ -59,12 +63,10 @@
     "rollup-plugin-typescript2": "^0.27.3",
     "serve": "^11.3.2",
     "shx": "^0.3.2",
-    "typescript": "^4.0.3"
-  },
-  "dependencies": {
+    "typescript": "^4.0.3",
     "classnames": "^2.2.6",
+    "tailwindcss": "^1.8.10",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "tailwindcss": "^1.8.10"
+    "react-dom": "^16.13.1"
   }
 }
