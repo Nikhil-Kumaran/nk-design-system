@@ -1,8 +1,20 @@
 /// <reference types="react" />
-export interface DropdownProps {
-    menuItems: {
-        label: string;
-        value: string;
-    }[];
+export interface MenuItem {
+  label: string;
+  value: string;
 }
-export declare const Dropdown: ({ menuItems }: DropdownProps) => JSX.Element;
+export interface DropdownProps {
+  menuItems: MenuItem[];
+  dropdownButtonText: string;
+}
+export declare const MenuItems: ({
+  menuItems,
+  menuItemClick,
+}: {
+  menuItems: MenuItem[];
+  menuItemClick?: ((item: string) => void) | undefined;
+}) => JSX.Element;
+export declare const Dropdown: ({
+  menuItems,
+  dropdownButtonText,
+}: DropdownProps) => JSX.Element;
