@@ -3679,7 +3679,7 @@ nice-try@^1.0.4:
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
   integrity sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==
 
-nk-design-system@^1.0.0:
+nk-design-system@latest:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/nk-design-system/-/nk-design-system-1.0.0.tgz#c297e3664acd97d62a111b71c206ae0c9318b835"
   integrity sha512-7peXN/Vj/yt3YHuyg2mHN5DJxxECAzBHrUdDP0FD5OcE0LHDdck2WGJae6tC9rExJvxn32NpnYzrJEmjxtVvxw==
