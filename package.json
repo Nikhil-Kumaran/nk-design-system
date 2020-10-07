@@ -1,6 +1,6 @@
 {
   "name": "nk-design-system",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "mk-design-system",
   "scripts": {
     "start": "webpack-dev-server --port 8080 --open --mode=development --display-error-details",
