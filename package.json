@@ -11,7 +11,21 @@
   },
   "main": "./build/index.js",
   "module": "./build/index.es.js",
-  "node_engine": {
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nikhil-Kumaran/nk-design-system"
+  },
+  "homepage": "https://nk-design-system.vercel.app",
+  "keywords": [
+    "design-system",
+    "react",
+    "storybook",
+    "typescript",
+    "tailwindcss"
+  ],
+  "author": "Nikhil Kumaran S",
+  "license": "MIT",
+  "engines": {
     "node": ">=10.16.0"
   },
   "husky": {
@@ -26,8 +40,6 @@
       "git add"
     ]
   },
-  "author": "Nikhil Kumaran S",
-  "license": "MIT",
   "peerDependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
