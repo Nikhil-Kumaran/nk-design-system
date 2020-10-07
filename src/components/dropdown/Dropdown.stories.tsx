@@ -11,6 +11,7 @@ const Template = (args) => <Dropdown {...args} />;
 
 export const DropdownComponent = Template.bind({});
 DropdownComponent.args = {
+  dropdownButtonText: "Dropdown",
   menuItems: [
     {
       label: "Menu 1",
