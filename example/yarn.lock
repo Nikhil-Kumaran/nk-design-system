@@ -3679,10 +3679,9 @@ nice-try@^1.0.4:
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
   integrity sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==
 
-nk-design-system@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/nk-design-system/-/nk-design-system-1.0.1.tgz#09c330b52c10dbc12901431f7d05cf33240108c3"
-  integrity sha512-Qgp3n6RWpFffk/pHM8HOLXMxCMZQGDCkkFctW2o193M7EkSg1vZaGxiBpfWniuINFO4egS/TXmXYjivdoolvPg==
+"nk-design-system@link:..":
+  version "0.0.0"
+  uid ""
 
 no-case@^3.0.3:
   version "3.0.3"
