@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode=development --open --hot",
-    "build": "webpack --mode=production"
+    "build": "webpack --mode=production",
+    "postinstall": "node node_modules/nk-design-system/build.js"
   },
   "babel": {
     "presets": [
@@ -28,7 +29,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "nk-design-system": "^1.0.0",
+    "nk-design-system": "link:..",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }
