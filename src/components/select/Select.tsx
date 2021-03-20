@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { MenuItem, MenuItems } from "../dropdown/Dropdown";
 import { Label } from "../input/Input";
+import { ReactComponent as ChevronDown } from "../../icons/chevron-down.svg";
 
 export interface SelectProps {
   options: MenuItem[];
@@ -59,19 +60,16 @@ export const Select = ({
       <div
         ref={node}
         className={
-          "bg-gray-200 border border-gray-300 p-2 rounded-md cursor-pointer flex justify-between w-48"
+          "bg-lightGray-200 border border-lightGray-300 p-2 rounded-sm cursor-pointer flex justify-between w-48"
         }
         onClick={toggleIsOpen}
       >
-        {selection || placeholder}
-        <span className="text-gray-500 flex items-center justify-center">
-          <img
-            width="16px"
-            height="16px"
-            src="https://uxwing.com/wp-content/themes/uxwing/download/02-arrow/line-angle-down.png"
-            alt="down"
-          />
-        </span>
+        {selection ? (
+          selection
+        ) : (
+          <span className="text-midGray-500">{placeholder}</span>
+        )}
+        <ChevronDown />
       </div>
       {isOpen && (
         <MenuItems menuItemClick={handleMenuSelect} menuItems={options} />

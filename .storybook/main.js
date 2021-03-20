@@ -6,6 +6,7 @@ module.exports = {
     "@storybook/addon-storysource",
     "@storybook/addon-a11y",
     "@storybook/addon-controls",
+    "storybook-addon-designs",
   ],
   webpackFinal: (config) => {
     config.module.rules.push({
@@ -21,6 +22,11 @@ module.exports = {
           },
         },
       ],
+    });
+
+    config.module.rules.unshift({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"],
     });
 
     // Return the altered config

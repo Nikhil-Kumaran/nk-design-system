@@ -21,7 +21,7 @@ export const Label = ({
   return (
     <>
       {label && (
-        <label className="text-sm text-gray-600 mb-2 block">
+        <label className="text-sm text-lightGray-600 mb-2 block">
           {label} {required && <span className="text-red-600">*</span>}
           {helpText && <span className="ml-2">({helpText})</span>}
         </label>
@@ -71,7 +71,7 @@ export const Input = ({
     <div>
       <Label label={label} required={required} helpText={helpText} />
       <input
-        className="bg-gray-200 border-gray-300 border p-2 rounded-md"
+        className="bg-lightGray-200 border-lightGray-300 border p-2 rounded-md"
         onChange={handleInputChange}
         value={inputValue}
         placeholder={placeholder}

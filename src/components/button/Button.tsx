@@ -18,12 +18,12 @@ export const Button = ({
 }: ButtonProps) => {
   const buttonClasses = classNames({
     "px-3 leading-8 rounded transition-all duration-200": true,
-    "bg-gray-200 hover:bg-gray-300": type === "normal" && !disabled,
+    "bg-lightGray-200 hover:bg-lightGray-300": type === "normal" && !disabled,
     "bg-blue-600 hover:bg-blue-500 text-white": type === "primary" && !disabled,
-    "bg-transparent hover:bg-gray-200": type === "subtle" && !disabled,
+    "bg-transparent hover:bg-lightGray-200": type === "subtle" && !disabled,
     "bg-red-600 hover:bg-red-500 text-white": type === "danger" && !disabled,
     "bg-yellow-600 hover:bg-yellow-500": type === "warning" && !disabled,
-    "cursor-not-allowed bg-gray-200 text-black text-opacity-50": disabled,
+    "cursor-not-allowed bg-lightGray-200 text-black text-opacity-50": disabled,
   });
 
   return (

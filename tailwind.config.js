@@ -22,7 +22,24 @@ module.exports = {
       current: "currentColor",
       black: "#000",
       white: "#fff",
-      gray: {
+      darkGray: {
+        100: "#42526E",
+        200: "#344563",
+        300: "#253858",
+        400: "#172B4D",
+        500: "#091E42",
+      },
+      midGray: {
+        100: "#B3BAC5",
+        200: "#A5ADBA",
+        300: "#97A0AF",
+        400: "#8993A4",
+        500: "#7A869A",
+        600: "#6B778C",
+        700: "#5E6C84",
+        800: "#505F79",
+      },
+      lightGray: {
         100: "#FAFBFC",
         200: "#F4F5F7",
         300: "#EBECF0",
