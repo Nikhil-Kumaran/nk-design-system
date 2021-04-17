@@ -111,5 +111,8 @@ module.exports = {
         700: "#403294",
       },
     },
+    maxWidth: {
+      xxs: "12rem",
+    },
   },
 };
