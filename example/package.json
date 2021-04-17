@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode=development --open --hot",
+    "start": "yarn && webpack-dev-server --mode=development --hot",
     "build": "webpack --mode=production",
     "postinstall": "node node_modules/nk-design-system/build.js"
   },

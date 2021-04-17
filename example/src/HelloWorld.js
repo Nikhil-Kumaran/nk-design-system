@@ -1,9 +1,9 @@
 import React from "react";
-import { Button, Dropdown } from "nk-design-system";
+import { Button, Select, Input } from "nk-design-system";
 
 const HelloWorld = () => {
   return (
-    <div className="p-4">
+    <div style={{ padding: "2rem" }}>
       <Button label="Button" />
       <br />
       <br />
@@ -13,8 +13,8 @@ const HelloWorld = () => {
       <Button label="Button" type="danger" />
       <br />
       <br />
-      <Dropdown
-        menuItems={[
+      <Select
+        options={[
           {
             label: "Menu 1",
             value: "menu1",
@@ -29,6 +29,8 @@ const HelloWorld = () => {
           },
         ]}
       />
+      <br />
+      <Input label="Name" helpText="This is required" required />
     </div>
   );
 };

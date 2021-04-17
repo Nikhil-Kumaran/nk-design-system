@@ -5,7 +5,20 @@ export interface InputProps {
   label?: string;
   placeholder?: string;
   required?: boolean;
+  /**  Show the character count entered in the input */
   showInputValueLength?: boolean;
+  /**
+   Requires label
+   @example
+    ```js
+    // Incorrect
+    <Input helpText="This is required" required />
+
+    // Correct
+    <Input label="Name" helpText="This is required" required />
+
+    ```
+   */
   helpText?: string;
 }
 

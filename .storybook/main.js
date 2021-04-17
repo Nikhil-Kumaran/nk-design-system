@@ -7,23 +7,16 @@ module.exports = {
     "@storybook/addon-a11y",
     "@storybook/addon-controls",
     "storybook-addon-designs",
+    {
+      name: "@storybook/addon-postcss",
+      options: {
+        postcssLoaderOptions: {
+          implementation: require("postcss"),
+        },
+      },
+    },
   ],
   webpackFinal: (config) => {
-    config.module.rules.push({
-      test: /\.css$/,
-      use: [
-        {
-          loader: "postcss-loader",
-          options: {
-            postcssOptions: {
-              ident: "postcss",
-              plugins: [require("tailwindcss"), require("autoprefixer")],
-            },
-          },
-        },
-      ],
-    });
-
     config.module.rules.unshift({
       test: /\.svg$/,
       use: ["@svgr/webpack"],

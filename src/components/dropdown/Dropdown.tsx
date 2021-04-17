@@ -19,12 +19,12 @@ export const MenuItems = ({
   menuItemClick?: (item: string) => void;
 }) => {
   return (
-    <div className="mt-2 shadow-lg w-48 rounded-md border border-lightGray-300">
+    <div className="mt-2 shadow-lg w-48 rounded-md border border-lightGray-300 absolute bg-white">
       {menuItems.map(({ label, value }) => (
         <div
           className="p-2 m-2 rounded-md hover:bg-lightGray-200 cursor-pointer"
           key={value}
-          onClick={menuItemClick?.bind(this, label)}
+          onClick={menuItemClick?.bind(null, label)}
         >
           {label}
         </div>

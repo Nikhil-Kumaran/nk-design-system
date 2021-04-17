@@ -3,6 +3,8 @@ import resolve from "@rollup/plugin-node-resolve";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import typescript from "rollup-plugin-typescript2";
 import postcss from "rollup-plugin-postcss";
+import url from "rollup-plugin-url";
+const svgr = require("@svgr/rollup").default;
 
 import packageJson from "./package.json";
 
@@ -33,5 +35,7 @@ export default {
       extract: true,
       // modules: true,
     }),
+    url(),
+    svgr(),
   ],
 };
