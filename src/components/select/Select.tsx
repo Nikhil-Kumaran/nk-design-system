@@ -1,24 +1,74 @@
 import React, { useEffect, useRef, useState } from "react";
-import { MenuItem, MenuItems } from "../dropdown/Dropdown";
 import { Label } from "../input/Input";
 import { ReactComponent as ChevronDown } from "../../icons/chevron-down.svg";
 import classNames from "classnames";
 
 export interface SelectProps {
   options: MenuItem[];
-  label?: string;
   placeholder?: string;
-  required?: boolean;
-  helpText?: string;
   value?: string;
 }
 
+export interface MenuItem {
+  label: string;
+  value: string;
+}
+
+export const MenuItems = ({
+  menuItems,
+  menuItemClick,
+  selection = "",
+  activeItemIndex,
+  handleOnMouseEnter,
+  isOpen,
+}: {
+  menuItems: MenuItem[];
+  menuItemClick?: (item: string) => void;
+  selection?: string;
+  activeItemIndex?: number;
+  handleOnMouseEnter?: (index: number) => void;
+  isOpen: boolean;
+}) => {
+  return (
+    <div
+      className={classNames({
+        "mt-2 shadow-lg w-full rounded-md border border-lightGray-300 absolute bg-white": true,
+        hidden: !isOpen,
+      })}
+      // style={{ display: isOpen ? "block" : "none" }}
+      aria-label="Menu items"
+    >
+      {menuItems.length ? (
+        menuItems.map(({ label, value }, index) => (
+          <div
+            className={classNames({
+              "py-2 px-4 cursor-pointer": true,
+              "bg-darkGray-100 text-white": selection === value,
+              "text-darkGray-400": selection !== value,
+              "bg-lightGray-200":
+                selection !== value && activeItemIndex === index,
+            })}
+            key={value}
+            onClick={menuItemClick?.bind(null, label)}
+            onMouseEnter={() => handleOnMouseEnter && handleOnMouseEnter(index)}
+            role="option"
+            aria-selected={selection === value}
+          >
+            {label}
+          </div>
+        ))
+      ) : (
+        <div className="py-2 px-4 cursor-not-allowed text-darkGray-400">
+          No options
+        </div>
+      )}
+    </div>
+  );
+};
+
 export const Select = ({
   options,
-  label,
   placeholder = "Select...",
-  required,
-  helpText,
   value,
 }: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,6 +106,7 @@ export const Select = ({
   const handleMenuSelect = (menuItem: string) => {
     setSelection(menuItem);
     setIsOpen(false);
+    setInputText("");
     input.current?.focus();
   };
 
@@ -110,56 +161,58 @@ export const Select = ({
 
   return (
     <div className="w-64 relative">
-      <Label label={label} required={required} helpText={helpText} />
-      <div
-        ref={wrapper}
-        className={classNames({
-          "group border-2 p-2 rounded-sm cursor-pointer flex flex-wrap justify-between relative": true,
-          "bg-lightGray-200 border-lightGray-200 hover:bg-lightGray-300 hover:border-lightGray-300": !isInputActive,
-          "bg-white border-primary-300": isInputActive,
-        })}
-        onClick={toggleIsOpen}
-      >
-        <div className="flex-grow">
-          {!selection && !inputText && (
-            <div className="text-midGray-500 absolute translate-y-1/2">
-              {placeholder}
+      <div role="listbox" aria-label="List box">
+        <div
+          ref={wrapper}
+          className={classNames({
+            "group border-2 p-2 rounded-sm cursor-pointer flex flex-wrap justify-between relative": true,
+            "bg-lightGray-200 border-lightGray-200 hover:bg-lightGray-300 hover:border-lightGray-300": !isInputActive,
+            "bg-white border-primary-300": isInputActive,
+          })}
+          aria-label="Select"
+          onClick={toggleIsOpen}
+        >
+          <div className="flex-grow">
+            {!selection && !inputText && (
+              <div className="text-midGray-700 absolute translate-y-1/2">
+                {placeholder}
+              </div>
+            )}
+            {selection && !inputText && (
+              <div
+                className="absolute translate-y-1/2 text-darkGray-400"
+                aria-label="Selected value"
+              >
+                {selection}
+              </div>
+            )}
+            <div
+              className="absolute h-0 invisible overflow-scroll whitespace-pre"
+              ref={hiddenDiv}
+            >
+              {inputText}
             </div>
-          )}
-          {selection && !inputText && (
-            <div className="absolute translate-y-1/2 text-darkGray-400">
-              {selection}
-            </div>
-          )}
-          <div
-            className="absolute h-0 invisible overflow-scroll whitespace-pre"
-            ref={hiddenDiv}
-          >
-            {inputText}
+            <input
+              type="text"
+              aria-label="Search"
+              ref={input}
+              className="focus:outline-none max-w-xxs bg-transparent z-1"
+              style={{
+                width: `${hiddenDiv.current?.offsetWidth || 2}px`,
+              }}
+              value={inputText}
+              onChange={(e) => {
+                setInputText(e.target.value);
+              }}
+              onKeyDown={handleKeyDown}
+            />
           </div>
-          <input
-            type="text"
-            ref={input}
-            className={classNames({
-              "focus:outline-none max-w-xxs": true,
-              "bg-white": isInputActive,
-              "bg-lightGray-200 group-hover:bg-lightGray-300": !isInputActive,
-            })}
-            style={{
-              width: `${hiddenDiv.current?.offsetWidth || 2}px`,
-            }}
-            value={inputText}
-            onChange={(e) => {
-              setInputText(e.target.value);
-            }}
-            onKeyDown={handleKeyDown}
-          />
+
+          <ChevronDown />
         </div>
 
-        <ChevronDown />
-      </div>
-      {isOpen && (
         <MenuItems
+          isOpen={isOpen}
           selection={
             options.find((option) => option.label === selection)?.value
           }
@@ -170,7 +223,7 @@ export const Select = ({
           activeItemIndex={activeItemIndex}
           handleOnMouseEnter={handleOnMouseEnter}
         />
-      )}
+      </div>
     </div>
   );
 };

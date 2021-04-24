@@ -114,5 +114,8 @@ module.exports = {
     maxWidth: {
       xxs: "12rem",
     },
+    zIndex: {
+      1: "1",
+    },
   },
 };
