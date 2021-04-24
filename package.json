@@ -7,7 +7,8 @@
     "build": "yarn clean-build && NODE_ENV=production rollup -c",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "test-cli": "jest"
   },
   "main": "./build/index.js",
   "module": "./build/index.es.js",

@@ -18,6 +18,14 @@ jobs:
               with:
                   node-version: 14
                   registry-url: https://registry.npmjs.org/
+            - name: ⚙️ install
+              run: yarn install     
+            - name: 🧪 test
+              run: yarn test-cli
+            - name: 🏗️ build library
+              run: yarn build
+            - name: 🏗️ build storybook
+              run: yarn build-storybook 
             - name: 🚀 npm publish
               run: npm publish --access public
               env:
