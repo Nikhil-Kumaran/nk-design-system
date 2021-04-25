@@ -2,7 +2,7 @@
 
 A react component library by following Atlassian design language(https://www.atlassian.design/)
 
-# Installation
+## Installation and usage
 
 Before installing add `"postinstall": "node node_modules/nk-design-system/build.js"` inside script tag in package.json.
 
@@ -16,7 +16,9 @@ or
 npm i nk-design-system
 ```
 
-# Dev
+Add `import "../node_modules/nk-design-system/build/index.es.css"` in your root component for styles. (refer example folder)
+
+## Contribute to the library
 
 ### Install packages
 

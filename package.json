@@ -1,9 +1,9 @@
 {
   "name": "nk-design-system",
   "version": "2.1.0",
-  "description": "mk-design-system",
+  "description": "A react component library by following Atlassian design language(https://www.atlassian.design)",
   "scripts": {
-    "clean-build": "shx rm -rf build",
+    "clean-build": "yarn && shx rm -rf build",
     "build": "yarn clean-build && NODE_ENV=production rollup -c",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
