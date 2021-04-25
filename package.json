@@ -1,6 +1,6 @@
 {
   "name": "nk-design-system",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A react component library by following Atlassian design language(https://www.atlassian.design)",
   "scripts": {
     "clean-build": "yarn && shx rm -rf build",
